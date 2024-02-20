@@ -1,7 +1,7 @@
 ---
 - name: Ping google.com from a specific host
   command: ping -c4 google.com
-  delegate_to: 192.168.3.84  # Delegates the task to be executed on the Ansible host via Ansible Core, *not* inside the K8s pod!
+  delegate_to: 192.168.3.60  # Delegates the task to be executed on the Ansible host via Ansible Core, *not* inside the K8s pod!
   register: ping_result
 
 - name: Print ping results
