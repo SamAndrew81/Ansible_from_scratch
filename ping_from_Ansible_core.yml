@@ -1,0 +1,7 @@
+---
+- name: Ping Test Playbook
+  hosts: all
+  become: yes  # Use 'become' if you need to execute tasks with superuser privileges
+
+  roles:
+    - ping_test
