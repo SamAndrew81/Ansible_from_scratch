@@ -1,8 +1,16 @@
 ---
 - name: Ping Test Playbook
-  hosts: localhost
-  become: no  # Use 'become' if you need to execute tasks with superuser privileges
+  hosts: all
   gather_facts: no
+  vars:
+    delegate_host: ansible-ubuntu-1.drewz.local
 
-  roles:
-    - ping_test
+  tasks:
+    - name: Ping google.com from a specific Linux OS host (connecting via SSH)
+      command: ping -c4 google.com
+      delegate_to: "{{ delegate_host }}"
+      register: ping_result
+
+    - name: Print ping results
+      debug:
+        msg: "{{ ping_result.stdout_lines }}"
