@@ -1,7 +1,8 @@
 ---
 - name: Ping Test Playbook
   hosts: localhost
-  become: yes  # Use 'become' if you need to execute tasks with superuser privileges
+  become: no  # Use 'become' if you need to execute tasks with superuser privileges
+  gather_facts: no
 
   roles:
     - ping_test
