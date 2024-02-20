@@ -3,15 +3,15 @@ all:
   children:
     ansible_ubuntu:
       hosts:
-        ansible-ubuntu-1.drewz.local
-        ansible-ubuntu-2.drewz.local
-        ansible-ubuntu-3.drewz.local
-        ansible-ubuntu-4.drewz.local
+        ansible-ubuntu-1.drewz.local:
+        ansible-ubuntu-2.drewz.local:
+        ansible-ubuntu-3.drewz.local:
+        ansible-ubuntu-4.drewz.local:
     ubuntuClones:
       hosts:
-        ubuntu-clone-1.drewz.local
-        ubuntu-clone-2.drewz.local
-        ubuntu-clone-3.drewz.local
+        ubuntu-clone-1.drewz.local:
+        ubuntu-clone-2.drewz.local:
+        ubuntu-clone-3.drewz.local:
   vars:
     ansible_user: root
     ansible_password: Saf420af
