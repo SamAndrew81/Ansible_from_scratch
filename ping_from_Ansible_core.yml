@@ -1,6 +1,6 @@
 ---
 - name: Ping Test Playbook
-  hosts: all
+  hosts: localhost
   gather_facts: no
   vars:
     delegate_host: ansible-ubuntu-1.drewz.local
