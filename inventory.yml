@@ -9,9 +9,9 @@ all:
         ansible-ubuntu-4.drewz.local:
     ubuntuClones:
       hosts:
-        ubuntu-clone-1:
-        ubuntu-clone-2:
-        ubuntu-clone-3:
+        ubuntu-clone-1.drewz.local:
+        ubuntu-clone-2.drewz.local:
+        ubuntu-clone-3.drewz.local:
   vars:
     ansible_user: root
     ansible_password: Saf420af
