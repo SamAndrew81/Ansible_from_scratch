@@ -1,5 +1,5 @@
 ---
-- name: Ping Test Playbook
+- name: Ping Test for vSphere VMs
   hosts: all
   gather_facts: no
 
