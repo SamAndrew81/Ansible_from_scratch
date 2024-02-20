@@ -5,4 +5,4 @@
 
   tasks:
     - name: Test connectivity to all SSH Linux hosts in vSphere (as defined in inventory.yml)
-      ping:
+      ping: {}
