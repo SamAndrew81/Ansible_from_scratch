@@ -8,4 +8,4 @@
           {
             "key": "value"
           }
-        dest: "/path/to/your/directory/simple.json"
+        dest: "/tmp/simple-test-inside-pod.json"
