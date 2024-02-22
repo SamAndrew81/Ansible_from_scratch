@@ -1,11 +1,21 @@
 ---
-- name: Write JSON file
+- name: Write JSON file and save as artifact
   hosts: localhost
   tasks:
-    - name: Write simple JSON content to a file
-      copy:
-        content: |
+    - name: Define JSON content
+      set_fact:
+        json_content: |
           {
             "key": "value"
           }
+
+    - name: Write simple JSON content to a file
+      copy:
+        content: "{{ json_content }}"
         dest: "/tmp/simple-test-inside-pod.json"
+
+    - name: Save JSON content as an artifact
+      set_stats:
+        data:
+          simple_test_inside_pod_json: "{{ json_content | from_yaml }}"
+        aggregate: yes
