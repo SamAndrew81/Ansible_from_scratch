@@ -1,6 +1,6 @@
 ---
 - name: Write JSON file
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Write simple JSON content to a file
       copy:
