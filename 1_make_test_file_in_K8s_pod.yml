@@ -1,0 +1,11 @@
+---
+- name: Write JSON file
+  hosts: all
+  tasks:
+    - name: Write simple JSON content to a file
+      copy:
+        content: |
+          {
+            "key": "value"
+          }
+        dest: "/path/to/your/directory/simple.json"
