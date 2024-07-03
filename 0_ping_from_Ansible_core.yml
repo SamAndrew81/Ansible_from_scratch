@@ -1,8 +1,8 @@
 ---
 - name: Ping Test Playbook
   hosts: localhost
-  become: yes # Elevate privileges to sudo / root on the target host
-  gather_facts: no
+  become: true # Elevate privileges to sudo / root on the target host
+  gather_facts: false
   vars:
     delegate_host: ansible-ubuntu-1.drewz.local
 

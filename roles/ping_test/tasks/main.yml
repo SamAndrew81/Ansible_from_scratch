@@ -1,9 +1,22 @@
 ---
-- name: Ping google.com from a specific host
-  command: ping -c4 google.com
-  delegate_to: "{{ delegate_host }}"  # Delegates the task to be executed on the Ansible host via Ansible Core, *not* inside the K8s pod!
-  register: ping_result
+- name: Ensure google.com is reachable from a specific host
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Execute ping command and handle results
+      block:
+        - name: Ping google.com from the delegate host
+          ansible.builtin.command:
+            cmd: ping -c4 google.com
+          delegate_to: "{{ delegate_host }}"
+          register: ping_result
+          changed_when: false  # Ensure the task is marked as not changed
 
-- name: Print ping results
-  debug:
-    msg: "{{ ping_result.stdout_lines }}"
+        - name: Print ping results if reachable
+          ansible.builtin.debug:
+            msg: "{{ ping_result.stdout_lines }}"
+          when: ping_result.rc == 0
+      rescue:
+        - name: Handle error in pinging google.com
+          ansible.builtin.debug:
+            msg: "Failed to ping google.com from {{ delegate_host }}"
